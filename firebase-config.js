@@ -1,12 +1,11 @@
 // Firebase Configuration for ISERSS-TC-PM
 const firebaseConfig = {
-  apiKey: "AIzaSyCTMN-6CPj_Z2xX3S3hbHVEhwQlNZuVmcI",
-  authDomain: "iserss-tc-pm.firebaseapp.com",
-  projectId: "iserss-tc-pm",
-  storageBucket: "iserss-tc-pm.firebasestorage.app",
-  messagingSenderId: "1045546199733",
-  appId: "1:1045546199733:web:462f6c7827a4fdc2dc2cfc",
-  measurementId: "G-29NKNSFV7L"
+  apiKey: "AIzaSyDKeHVjyq2hDZqzL-AFt2zt00Ja5a6LGMs",
+  authDomain: "iserss-tc-pm6.firebaseapp.com",
+  projectId: "iserss-tc-pm6",
+  storageBucket: "iserss-tc-pm6.firebasestorage.app",
+  messagingSenderId: "895220030183",
+  appId: "1:895220030183:web:f155d5a27d03c2fb0b6042"
 };
 
 // Initialize Firebase
