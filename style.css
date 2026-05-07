@@ -1,0 +1,544 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0f0f0f;
+    color: #e0e0e0;
+    line-height: 1.6;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    border-bottom: 3px solid #4a90e2;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #4a90e2;
+    text-shadow: 0 2px 5px rgba(74, 144, 226, 0.3);
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.user-email {
+    color: #a0a0a0;
+    font-size: 0.9rem;
+}
+
+/* ===== AUTH SECTION ===== */
+.auth-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
+    padding: 2rem;
+}
+
+.auth-container {
+    background: #1a1a1a;
+    border: 2px solid #4a90e2;
+    border-radius: 15px;
+    padding: 3rem;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 10px 40px rgba(74, 144, 226, 0.2);
+}
+
+.auth-container h2 {
+    color: #4a90e2;
+    margin-bottom: 0.5rem;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.auth-container p {
+    color: #7a8fa3;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 0.85rem;
+}
+
+.auth-tabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid #333;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 0.8rem;
+    background: none;
+    border: none;
+    color: #7a8fa3;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+}
+
+.tab-btn.active {
+    color: #4a90e2;
+    border-bottom-color: #4a90e2;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* ===== INPUTS & BUTTONS ===== */
+.input-field {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    background: #2a2a2a;
+    border: 1px solid #404040;
+    border-radius: 8px;
+    color: #e0e0e0;
+    font-size: 0.95rem;
+    transition: all 0.3s;
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: #4a90e2;
+    background: #333;
+    box-shadow: 0 0 10px rgba(74, 144, 226, 0.2);
+}
+
+.btn {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+    font-size: 0.95rem;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+    color: white;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(74, 144, 226, 0.4);
+}
+
+.btn-secondary {
+    background: #404040;
+    color: #e0e0e0;
+    width: 100%;
+}
+
+.btn-secondary:hover {
+    background: #505050;
+}
+
+.btn-add {
+    background: #4a90e2;
+    color: white;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.btn-logout {
+    background: #e74c3c;
+    color: white;
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+}
+
+.btn-logout:hover {
+    background: #c0392b;
+}
+
+.btn-danger {
+    background: #e74c3c;
+    color: white;
+}
+
+.btn-danger:hover {
+    background: #c0392b;
+}
+
+.error-message {
+    color: #e74c3c;
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+/* ===== APP SECTION ===== */
+.app-section {
+    min-height: calc(100vh - 80px);
+    padding: 2rem 0;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 2rem;
+    padding: 0 2rem;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+    background: #1a1a1a;
+    border: 2px solid #333;
+    border-radius: 10px;
+    padding: 1.5rem;
+    height: fit-content;
+    position: sticky;
+    top: 100px;
+}
+
+.sidebar h3 {
+    color: #4a90e2;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.courses-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.course-item {
+    padding: 0.8rem;
+    background: #2a2a2a;
+    border-left: 4px solid #4a90e2;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    color: #e0e0e0;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.course-item:hover,
+.course-item.active {
+    background: #3a3a3a;
+    transform: translateX(5px);
+}
+
+.course-item.active {
+    background: #4a90e2;
+    color: white;
+}
+
+/* ===== MAIN CONTENT ===== */
+.main-content {
+    background: #1a1a1a;
+    border: 2px solid #333;
+    border-radius: 10px;
+    padding: 2rem;
+    min-height: 600px;
+}
+
+.form-section {
+    background: #2a2a2a;
+    padding: 2rem;
+    border-radius: 10px;
+    border-left: 4px solid #4a90e2;
+    margin-bottom: 2rem;
+}
+
+.form-section h2 {
+    color: #4a90e2;
+    margin-bottom: 1.5rem;
+}
+
+.course-section h2 {
+    color: #4a90e2;
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+}
+
+.course-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+/* ===== RECORDING FORM ===== */
+.recording-form {
+    background: #2a2a2a;
+    padding: 2rem;
+    border-radius: 10px;
+    border-left: 4px solid #4a90e2;
+    margin-bottom: 2rem;
+}
+
+.recording-form h3 {
+    color: #4a90e2;
+    margin-bottom: 1.5rem;
+}
+
+.recording-options {
+    display: flex;
+    gap: 2rem;
+    margin: 1.5rem 0;
+}
+
+.option-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    color: #a0a0a0;
+    user-select: none;
+}
+
+.option-label input[type="radio"] {
+    cursor: pointer;
+    accent-color: #4a90e2;
+}
+
+.upload-section,
+.link-section {
+    margin: 1rem 0;
+}
+
+/* ===== RECORDINGS LIST ===== */
+.recordings-section {
+    margin-top: 2rem;
+}
+
+.recordings-section h3 {
+    color: #4a90e2;
+    margin-bottom: 1.5rem;
+}
+
+.recordings-list {
+    display: grid;
+    gap: 1rem;
+}
+
+.recording-item {
+    background: #2a2a2a;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid #7fc8ea;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.recording-info {
+    flex: 1;
+    min-width: 200px;
+}
+
+.recording-chapter {
+    font-weight: 600;
+    color: #4a90e2;
+    margin-bottom: 0.3rem;
+}
+
+.recording-date {
+    color: #7a8fa3;
+    font-size: 0.9rem;
+}
+
+.recording-actions {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.recording-actions button {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+}
+
+.btn-download {
+    background: #27ae60;
+    color: white;
+}
+
+.btn-download:hover {
+    background: #229954;
+}
+
+.btn-delete {
+    background: #e74c3c;
+    color: white;
+}
+
+.btn-delete:hover {
+    background: #c0392b;
+}
+
+.btn-play {
+    background: #4a90e2;
+    color: white;
+}
+
+.btn-play:hover {
+    background: #357abd;
+}
+
+/* ===== EMPTY STATE ===== */
+.empty-state {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+    color: #7a8fa3;
+    font-size: 1.2rem;
+}
+
+/* ===== LOADING SPINNER ===== */
+.loading-spinner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.spinner {
+    border: 4px solid #333;
+    border-top: 4px solid #4a90e2;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        position: static;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 1rem;
+        align-items: start;
+    }
+
+    .sidebar h3 {
+        grid-column: 1 / -1;
+    }
+
+    .courses-list {
+        grid-column: 1 / -1;
+        flex-direction: row;
+        flex-wrap: wrap;
+        max-height: none;
+    }
+
+    .course-item {
+        flex: 1;
+        min-width: 150px;
+    }
+
+    .nav-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .recording-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .recording-actions {
+        width: 100%;
+    }
+
+    .recording-actions button {
+        flex: 1;
+    }
+
+    .auth-container {
+        padding: 2rem 1rem;
+    }
+
+    .logo {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-right {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .user-email {
+        font-size: 0.8rem;
+    }
+
+    .main-content {
+        padding: 1rem;
+    }
+
+    .recording-form {
+        padding: 1rem;
+    }
+
+    .recording-options {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}

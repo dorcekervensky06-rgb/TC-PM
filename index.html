@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISERSS TC PM - Plateforme d'Apprentissage</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1 class="logo">📚 ISERSS TC PM</h1>
+            <div class="nav-right">
+                <span id="userEmail" class="user-email"></span>
+                <button id="logoutBtn" class="btn btn-logout" onclick="logout()">Déconnexion</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Auth Section (Login/Register) -->
+    <div id="authSection" class="auth-section">
+        <div class="auth-container">
+            <h2>Bienvenue</h2>
+            <p>Institut d'études et de recherches en sciences sociales</p>
+            
+            <div class="auth-tabs">
+                <button class="tab-btn active" onclick="switchTab('login')">Connexion</button>
+                <button class="tab-btn" onclick="switchTab('register')">Inscription</button>
+            </div>
+
+            <!-- Login Tab -->
+            <div id="loginTab" class="tab-content active">
+                <input type="email" id="loginEmail" placeholder="Email" class="input-field">
+                <input type="password" id="loginPassword" placeholder="Mot de passe" class="input-field">
+                <button onclick="login()" class="btn btn-primary">Connexion</button>
+                <p id="loginError" class="error-message"></p>
+            </div>
+
+            <!-- Register Tab -->
+            <div id="registerTab" class="tab-content">
+                <input type="email" id="registerEmail" placeholder="Email" class="input-field">
+                <input type="password" id="registerPassword" placeholder="Mot de passe" class="input-field">
+                <input type="password" id="registerConfirm" placeholder="Confirmer mot de passe" class="input-field">
+                <button onclick="register()" class="btn btn-primary">S'inscrire</button>
+                <p id="registerError" class="error-message"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main App Section -->
+    <div id="appSection" class="app-section" style="display: none;">
+        <div class="container">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <h3>Mes Cours</h3>
+                <div id="coursesList" class="courses-list"></div>
+                <button onclick="addCourse()" class="btn btn-add">+ Ajouter un cours</button>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="main-content">
+                <!-- Add Course Form -->
+                <div id="addCourseForm" class="form-section" style="display: none;">
+                    <h2>Nouveau Cours</h2>
+                    <input type="text" id="courseName" placeholder="Nom du cours" class="input-field" maxlength="50">
+                    <button onclick="saveCourse()" class="btn btn-primary">Créer le cours</button>
+                    <button onclick="cancelAddCourse()" class="btn btn-secondary">Annuler</button>
+                </div>
+
+                <!-- Course Content -->
+                <div id="courseContent" class="course-section" style="display: none;">
+                    <div class="course-header">
+                        <h2 id="courseTitle"></h2>
+                        <button onclick="deleteCourse()" class="btn btn-danger">Supprimer le cours</button>
+                    </div>
+
+                    <!-- Add Recording Form -->
+                    <div class="recording-form">
+                        <h3>Ajouter un enregistrement</h3>
+                        <input type="text" id="chapterName" placeholder="Nom du chapitre" class="input-field" maxlength="100">
+                        <input type="date" id="recordingDate" class="input-field">
+                        
+                        <div class="recording-options">
+                            <label class="option-label">
+                                <input type="radio" name="recordingType" value="upload" checked onchange="toggleRecordingType()">
+                                📤 Télécharger un audio
+                            </label>
+                            <label class="option-label">
+                                <input type="radio" name="recordingType" value="link" onchange="toggleRecordingType()">
+                                🔗 Lien Google Drive
+                            </label>
+                        </div>
+
+                        <div id="uploadSection" class="upload-section">
+                            <input type="file" id="audioFile" accept="audio/*" class="input-field">
+                        </div>
+
+                        <div id="linkSection" class="link-section" style="display: none;">
+                            <input type="url" id="driveLink" placeholder="https://drive.google.com/..." class="input-field">
+                        </div>
+
+                        <button onclick="addRecording()" class="btn btn-primary">Ajouter l'enregistrement</button>
+                    </div>
+
+                    <!-- Recordings List -->
+                    <div class="recordings-section">
+                        <h3>Enregistrements</h3>
+                        <div id="recordingsList" class="recordings-list"></div>
+                    </div>
+                </div>
+
+                <!-- Empty State -->
+                <div id="emptyState" class="empty-state">
+                    <p>👈 Sélectionnez un cours ou créez-en un nouveau</p>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div id="loadingSpinner" class="loading-spinner" style="display: none;">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Firebase Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-storage.js"></script>
+
+    <!-- App Scripts -->
+    <script src="firebase-config.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
